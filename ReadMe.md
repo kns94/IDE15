@@ -7,9 +7,9 @@ Note: The following program was written on Ubuntu 12.04 using Python 2.7.3, GCC 
 
 2. I had added some additional features apart for the task:
 
-⋅⋅1. To download tweets using twitter API; Run the script `tweet_download.sh` - It will download tweets in the file `/tweet_input/tweets.txt`. You'll have to ask me for the app secret! But, please run the script `install.sh` to install additional libraries; make sure that you have root access :)
+    1. To download tweets using twitter API; Run the script `tweet_download.sh` - It will download tweets in the file `/tweet_input/tweets.txt`. You'll have to ask me for the app secret! But, please run the script `install.sh` to install additional libraries; make sure that you have root access :)
 
-⋅⋅2. Please execute the shell script - run the shell script `./run_add.sh` on your terminal; it will execute two python files - `/src/median_unique_add.py` and `/src/words_tweeted_add.py` 
+    2. Please execute the shell script - run the shell script `./run_add.sh` on your terminal; it will execute two python files - `/src/median_unique_add.py` and `/src/words_tweeted_add.py` 
 
 ###### Introduction
 
