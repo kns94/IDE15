@@ -3,7 +3,13 @@ Note: The following program was written on Ubuntu 12.04 using Python 2.7.3, GCC 
 
 ###### Instructions to Run
 
-Run the shell script `run.sh` on your terminal; I will execute two python files - `/src/median_unique.py` and `/src/words_tweeted.py`
+1. Run the shell script `./run.sh` on your terminal; it will execute two python files - `/src/median_unique.py` and `/src/words_tweeted.py`
+
+2. I had added some additional features apart for the task:
+
+..1. To download tweets using twitter API; Run the script `tweet_download.sh` - It will download tweets in the file `/tweet_input/tweets.txt`. You'll have to ask me for the app secret! But, please run the script `install.sh` to install additional libraries; make sure that you have root access :)
+
+..2. Please execute the shell script - run the shell script `./run_add.sh` on your terminal; it will execute two python files - `/src/median_unique_add.py` and `/src/words_tweeted_add.py` 
 
 ###### Introduction
 
@@ -20,7 +26,7 @@ Second challenge seems more in the lines to test programming abilities
 
 ###### Implementation
 
-**Test Data-Set:** Tweets extracted using [Twitris 2.0](http://knoesis.org/projects/twitris) by entering specific keywords pertaining to Gender-Based Violence. 
+**Test Data-Set:** Tweets extracted using [Twitris 2.0](http://knoesis.org/projects/twitris) by entering specific keywords pertaining to Gender-Based Violence. The data-set is saved in the file named `tweets_gbv.txt`. You would be required to change input file in `run.sh` and `run_advanced.sh` accordingly; or you can *rename* the file as `tweets.txt`.
 
 **Programming Specifics:** Programmed on Ubuntu 12.04 using Python 2.7.3
 
@@ -32,11 +38,11 @@ For the second task, I extracted unique keywords for a particular tweet and save
 
 ###### Additional Features Implemented [To be added iteratively]
 
-1. Tweets will be automatically extracted after every-run
-2. The characters in tweet.txt need not be of lower-case; the system will convert every word/character to lower-case and process accordingly.
-3. Punctuations will be removed
+1. ~~Tweets will be automatically extracted after every-run~~\[Done]
+2. ~~The characters in tweet.txt need not be of lower-case; the system will convert every word/character to lower-case and process accordingly.~~ \[Done]
+3. ~~Punctuations will be removed~~ \[Done]
 4. Output File will contain analysis about the type of Keyword
-5. Median will be calculated as file arrives
+5. Median will be calculated as line arrives
 
 ###### Constraints
 

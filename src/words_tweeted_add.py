@@ -7,7 +7,7 @@
 #    Input File: tweet_input/tweets.txt												   #
 #    Output File: tweet_output/ft1.txt 				                                                                   #
 #                                                                                                                                  #
-#    Usage: python ./src/words_tweeted.py ./tweet_input/tweets.txt ./tweet_output/ft1.txt                                          #
+#    Usage: python ./src/words_tweeted_add.py ./tweet_input/tweets.txt ./tweet_output/ft1_add.txt                                  #
 #																   #
 #    Logic:															   #
 #	   1) To traverse tweets.txt file interatively                                                                             #
@@ -18,6 +18,7 @@
 
 import operator
 from sys import argv
+import re
 
 #I had intended to use OS library; but will edit it given David's recent update!
 
@@ -51,6 +52,11 @@ for line in open(tweet_file):
 	i=0
 
 	while(i<len(tweetWords)):
+
+		#Making sure that all the key words are converted to lower case and removing stopwords
+		tweetWords[i]=re.sub('[,,.,-,!,#,$,%,@,(,),*,&,^,+,\-,",\',?,:,\;,\\\,>,<,_,=,\[,\]]',' ',tweetWords[i])
+		tweetWords[i]=tweetWords[i].replace(' ','')
+		tweetWords[i]=tweetWords[i].lower()
 
 		#Appending words in dictionary and incrementing count 
 

@@ -1,18 +1,18 @@
 ####################################################################################################################################
 #																   #
-#    Task1 - Kushal Shah                                     									   #	
+#    Task2- Kushal Shah														   #	
 #																   #
-#    Aim: To calculate frequency of a particular words in a given data-set						           #
+#    Aim: To calculate median of unique words in a particular data-set   						           #
 #																   #	
 #    Input File: tweet_input/tweets.txt												   #
-#    Output File: tweet_output/ft1.txt 				                                                                   #
+#    Output File: tweet_output/ft2.txt 				                                                                   #
 #                                                                                                                                  #
-#    Usage: python ./src/words_tweeted.py ./tweet_input/tweets.txt ./tweet_output/ft1.txt                                          #
+#    Usage: python ./src/median_unique_add.py ./tweet_input/tweets.txt ./tweet_output/ft2_add.txt                                  #
 #																   #
 #    Logic:															   #
 #	   1) To traverse tweets.txt file interatively                                                                             #
-#	   2) To split text by a space ' '                                                                                         #
-#	   3) To check if the value exists in the dictionary and to increment count accordingly                                    #
+#	   2) To split text by a space ' ' and to add unique tokens to a list                                                      #
+#	   3) To calculate mean accordingly                                                                                        #
 #                                                                                                                                  #
 ####################################################################################################################################
 
@@ -37,13 +37,18 @@ from sys import argv
 
 tweet_file=argv[1]
 
-#Dictionary of unique keywords
-words={}
+#Dictionary of mean
+mean={}
+
+count=0
 
 #Traversing tweets line by line
 for line in open(tweet_file):
 	
 	#print(line)
+
+	#List containing unique keywords
+	unique_list=[]
 
 	#Seperating words by space
 	tweetWords=line.strip().split(' ')
@@ -52,23 +57,28 @@ for line in open(tweet_file):
 
 	while(i<len(tweetWords)):
 
-		#Appending words in dictionary and incrementing count 
-
 		if(tweetWords[i]):
-			if(tweetWords[i] not in words):
-				words[tweetWords[i]]=1
-			else:
-				words[tweetWords[i]]=words[tweetWords[i]]+1
-
-		#print(tweetWords[i]+"\n")
+			#Appending unique keywords in a list
+			if(tweetWords[i] not in unique_list):
+				unique_list.append(tweetWords[i])
+		
+			#print(tweetWords[i]+"\n")
 
 		i=i+1
 
-#sorting words according to ASCII sequence
-sorted_words=sorted(words.items(),key=operator.itemgetter(0))
+	#Calculating mean by multiplying previous mean by number of values; adding latest value and dividing by new count
+	if(count!=0):
+		mean[count]=((mean[count-1]*(count))+len(unique_list))/float(count+1)
+	else:
+		#Mean of first value is the value itself
+		mean[count]=len(unique_list)
+
+	count=count+1	
+
+#print(mean)
 
 #Output File Name
-#output_file_name_raw="tweet_output/ft1.txt"
+#output_file_name_raw="tweet_output/ft2.txt"
 
 #Complete Output File Name
 #output_file_name=path+"/"+output_file_name_raw
@@ -77,10 +87,12 @@ output_file_name=argv[2]
 
 output_file=open(output_file_name,'w')
 
-#Saving dictionary in a file
-for tokens, count in sorted_words:
-	output_file.write(tokens+"\t")
-	output_file.write(str(count))
+#Saving latest values of mean in a file
+
+i=0
+while(i<len(mean)):
+	output_file.write(str(mean[i]))
 	output_file.write("\n")
+	i=i+1
 
 output_file.close()

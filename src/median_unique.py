@@ -7,7 +7,7 @@
 #    Input File: tweet_input/tweets.txt												   #
 #    Output File: tweet_output/ft2.txt 				                                                                   #
 #                                                                                                                                  #
-#    Usage: python words_tweeted.py                                                                                                #
+#    Usage: python ./src/median_unique.py ./tweet_input/tweets.txt ./tweet_output/ft2.txt                                          #
 #																   #
 #    Logic:															   #
 #	   1) To traverse tweets.txt file interatively                                                                             #
@@ -17,19 +17,25 @@
 ####################################################################################################################################
 
 import operator
-import os
+from sys import argv
+
+#I had intended to use OS library; but will edit it given David's recent update!
+
+#import os
 
 #Change directory - Go to parent directory
-os.chdir('..')
+#os.chdir('..')
 
 #Save path of parent directory
-path=os.getcwd()
+#path=os.getcwd()
 
 #Input File containing tweets
-tweet_file_raw="tweet_input/tweets.txt"
+#tweet_file_raw="tweet_input/tweets.txt"
 
 #Complete path of the file
-tweet_file=path+"/"+tweet_file_raw
+#tweet_file=path+"/"+tweet_file_raw
+
+tweet_file=argv[1]
 
 #Dictionary of mean
 mean={}
@@ -72,10 +78,12 @@ for line in open(tweet_file):
 #print(mean)
 
 #Output File Name
-output_file_name_raw="tweet_output/ft2.txt"
+#output_file_name_raw="tweet_output/ft2.txt"
 
 #Complete Output File Name
-output_file_name=path+"/"+output_file_name_raw
+#output_file_name=path+"/"+output_file_name_raw
+
+output_file_name=argv[2]
 
 output_file=open(output_file_name,'w')
 
