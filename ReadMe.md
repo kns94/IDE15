@@ -7,9 +7,13 @@ Note: The following program was written on Ubuntu 12.04 using Python 2.7.3, GCC 
 
 2. I had added some additional features apart for the task:
 
---1. To download tweets using twitter API; Run the script `tweet_download.sh` - It will download tweets in the file `/tweet_input/tweets.txt`. You'll have to ask me for the app secret! But, please run the script `install.sh` to install additional libraries; make sure that you have root access :)
+    1. To download tweets using twitter API; Run the script `tweet_download.sh` - It will download tweets in the file `/tweet_input/tweets.txt`. You'll have to ask me for the app secret! But, please run the script `install.sh` to install additional libraries; make sure that you have root access :)
 
---2. Please execute the shell script - run the shell script `./run_add.sh` on your terminal; it will execute two python files - `/src/median_unique_add.py` and `/src/words_tweeted_add.py` 
+    2. Please run the shell script - `./clean.sh` on your terminal; it will execute the python file `/src/words_tweeted_clean.py` This code will remove punctuations from tweets and calculate word count accordingly.
+
+    3. Please run the script - `./realtime_median.sh` on the terminal; it will execute the python file `/src/realtime_median.sh` The system will download tweets and calculate median of unique words as the tweet arrives. Again, you'll require App secret to execute this script.
+ 
+    4. Please run the script `./knowledge_extraction.sh` on the terminal to execute `/src/Knowledge_Extraction.py` It will use Alchemy API to extract entity and entity type from the tweets; Please note that key would be required to run it. I have added a sample key; but it can only process 1000 data inputs a day. Please visit [website](http://www.alchemyapi.com/api/register.html) to get a free key.
 
 ###### Introduction
 
@@ -41,8 +45,8 @@ For the second task, I extracted unique keywords for a particular tweet and save
 1. Tweets will be automatically extracted after every-run \[Done]
 2. The characters in tweet.txt need not be of lower-case; the system will convert every word/character to lower-case and process accordingly \[Done]
 3. Punctuations will be removed \[Done]
-4. Output File will contain analysis about the type of Keyword
-5. Median will be calculated as line arrives
+4. Median will be calculated as tweet arrives \[Done]
+5. Extracting entity and entity type from tweet using Alchemy API \[Done]
 
 ###### Constraints
 
@@ -52,3 +56,4 @@ I will check for boundary cases and update accordingly.
 ###### Parting Comments
 
 It was a great learning experience, while solving this challenge. I hope that I will get an opportunity to solve such interesting problems in the near future. In case you would like to suggest me something or need further interpration; please feel free to reach out to me at kushalns5@gmail.com. Looking forward to interacting and learning from you!
+
