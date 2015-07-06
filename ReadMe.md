@@ -9,11 +9,15 @@ Note: The following program was written on Ubuntu 12.04 using Python 2.7.3, GCC 
 
     1. To download tweets using twitter API; Run the script `tweet_download.sh` - It will download tweets in the file `/tweet_input/tweets.txt`. You'll have to ask me for the app secret! But, please run the script `install.sh` to install additional libraries; make sure that you have root access :)
 
+<<<<<<< HEAD
     2. Please run the shell script - `./clean.sh` on your terminal; it will execute the python file `/src/words_tweeted_clean.py` This code will remove punctuations from tweets and calculate word count accordingly.
 
     3. Please run the script - `./realtime_median.sh` on the terminal; it will execute the python file `/src/realtime_median.sh` The system will download tweets and calculate median of unique words as the tweet arrives. Again, you'll require App secret to execute this script.
  
     4. Please run the script `./knowledge_extraction.sh` on the terminal to execute `/src/Knowledge_Extraction.py` It will use Alchemy API to extract entity and entity type from the tweets; Please note that key would be required to run it. I have added a sample key; but it can only process 1000 data inputs a day. Please visit [website](http://www.alchemyapi.com/api/register.html) to get a free key.
+=======
+    2. Please execute the shell script - run the shell script `./run_add.sh` on your terminal; it will execute two python files - `/src/median_unique_add.py` and `/src/words_tweeted_add.py` 
+>>>>>>> origin/master
 
 ###### Introduction
 
