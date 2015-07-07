@@ -77,10 +77,12 @@ class StdOutListener(StreamListener):
 	#Calculating mean by multiplying previous mean by number of values; adding latest value and dividing by new count
 	if(count!=0):
 		mean[count]=((mean[count-1]*(count))+len(unique_list))/float(count+1)
+		mean[count]=format(mean[count],'.2f')
 	else:
 		#Mean of first value is the value itself
 		mean[count]=len(unique_list)
-
+		mean[count]=format(mean[count],'.2f')
+		
 	mean_file.write(str(mean[count]))
 	mean_file.write("\n")
 
