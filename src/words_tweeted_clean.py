@@ -85,8 +85,9 @@ output_file=open(output_file_name,'w')
 
 #Saving dictionary in a file
 for tokens, count in sorted_words:
-	output_file.write(tokens+"\t")
-	output_file.write(str(count))
-	output_file.write("\n")
+	#output_file.write(tokens+"\t")
+	#output_file.write(str(count))
+	#output_file.write("\n")
+	output_file.writelines(tokens.ljust(25) + str(count).rjust(15)+'\n')
 
 output_file.close()
