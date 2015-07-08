@@ -24,7 +24,7 @@ cd IDE15
 
     3. Please run the script - `./realtime_median.sh` on the terminal; it will execute the python file `/src/realtime_median.sh` The system will download tweets and calculate median of unique words as the tweet arrives. Again, you'll require App secret to execute this script.
  
-    4. Please run the script `./knowledge_extraction.sh` on the terminal to execute `/src/Knowledge_Extraction.py` It will use Alchemy API to extract entity and entity type from the tweets; Please note that key would be required to run it. I have added a sample key; but it can only process 1000 data inputs a day. Please visit [website](http://www.alchemyapi.com/api/register.html) to get a free key.
+    4. Please run the script `./knowledge_extraction.sh` on the terminal to execute `/src/Knowledge_Extraction.py` It will use Alchemy API to extract entity and entity type from the tweets; Please note that key would be required to run it. I have added a sample key; but it can only process 1000 data inputs a day. Please visit the [website](http://www.alchemyapi.com/api/register.html) to get a free key.
 
 ###### Introduction
 
@@ -32,7 +32,7 @@ I would like to thank David and the entire team at Insight for giving me this op
 
 The first challenge is known as [Term Frequency and Weighting](http://nlp.stanford.edu/IR-book/html/htmledition/term-frequency-and-weighting-1.html) It's a fairly common concept used while analyzing Natural Language; mainly used to conceptualize how significant a particular word is and if it is not, then to *discard* it - so that we can focus only on **relevant** keywords. Here, we assume each line as a document; so we are calculating words common in different documents in a particular data-set.
 
-Second challenge seems more in the lines to test programming abilities
+Second challenge seems more in the lines to test programming abilities; which is to identify unique words in each line and to calculate median of lines iteratively.
 
 ###### Problem
 
@@ -41,7 +41,7 @@ Second challenge seems more in the lines to test programming abilities
 
 ###### Implementation
 
-**Test Data-Set:** Tweets extracted using [Twitris 2.0](http://knoesis.org/projects/twitris) by entering specific keywords pertaining to Gender-Based Violence. The data-set is saved in the file named `tweets_gbv.txt`. You would be required to change input file in `run.sh` and `run_advanced.sh` accordingly; or you can *rename* the file as `tweets.txt`.
+**Test Data-Set:** Tweets extracted using [Twitris 2.0](http://knoesis.org/projects/twitris) by entering specific keywords pertaining to Gender-Based Violence. The data-set is saved in the file named `tweets_gbv.txt`.
 
 **Programming Specifics:** Programmed on Ubuntu 12.04 using Python 2.7.3
 

@@ -9,7 +9,7 @@ Download the repository in the following manner:
 git clone git://github.com/kns94/IDE15.git
 
 #It will give allow files to execute 
-sudo chmod 777 IDE15
+sudo chmod 777 -R IDE15
 
 cd IDE15
 ```
@@ -41,7 +41,7 @@ Second challenge seems more in the lines to test programming abilities
 
 ###### Implementation
 
-**Test Data-Set:** Tweets extracted using [Twitris 2.0](http://knoesis.org/projects/twitris) by entering specific keywords pertaining to Gender-Based Violence. The data-set is saved in the file named `tweets_gbv.txt`. You would be required to change input file in `run.sh` and `run_advanced.sh` accordingly; or you can *rename* the file as `tweets.txt`.
+**Test Data-Set:** Tweets extracted using [Twitris 2.0](http://knoesis.org/projects/twitris) by entering specific keywords pertaining to Gender-Based Violence. The data-set is saved in the file named `tweets_gbv.txt`.
 
 **Programming Specifics:** Programmed on Ubuntu 12.04 using Python 2.7.3
 
