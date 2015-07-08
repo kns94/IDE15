@@ -75,22 +75,18 @@ class StdOutListener(StreamListener):
         #print("\n\n"+str(unique_list)+"\n\n\n")
 
 	#Calculating mean by multiplying previous mean by number of values; adding latest value and dividing by new count
-	if(len(unique_list)!=0):
-		if(count!=0):
-			mean[count]=((mean[count-1]*(count))+len(unique_list))/float(count+1)
-
-		else:
-			#Mean of first value is the value itself
-			mean[count]=len(unique_list)
-	
-		mean_file.write(str("%.2f" % mean[count]))
-		mean_file.write("\n")
-
-		count=count+1	
+	if(count!=0):
+		mean[count]=((mean[count-1]*(count))+len(unique_list))/float(count+1)
 		
-
 	else:
-		pass
+		#Mean of first value is the value itself
+		mean[count]=len(unique_list)
+		
+		
+	mean_file.write(str("%.2f" % mean[count]))
+	mean_file.write("\n")
+
+	count=count+1	     
 
         return True
 
