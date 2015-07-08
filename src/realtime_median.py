@@ -83,7 +83,7 @@ class StdOutListener(StreamListener):
 		mean[count]=len(unique_list)
 		
 		
-	mean_file.write(str("%.2f" % mean[i]))
+	mean_file.write(str("%.2f" % mean[count]))
 	mean_file.write("\n")
 
 	count=count+1	     

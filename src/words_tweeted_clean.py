@@ -20,7 +20,7 @@ import operator
 from sys import argv
 import re
 
-#I had intended to use OS library; but will edit it given David's recent update!
+#I had intended to use OS library; but this code will take inputs via command line arguments
 
 #import os
 
