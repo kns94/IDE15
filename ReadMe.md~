@@ -3,17 +3,6 @@ Note: The following program was written on Ubuntu 12.04 using Python 2.7.3, GCC 
 
 ###### Instructions to Run
 
-Download the repository in the following manner:
-
-```
-git clone git://github.com/kns94/IDE15.git
-
-#It will give allow files to execute 
-sudo chmod 777 IDE15
-
-cd IDE15
-```
-
 1. Run the shell script `./run.sh` on your terminal; it will execute two python files - `/src/median_unique.py` and `/src/words_tweeted.py`
 
 2. I had added some additional features apart for the task:
