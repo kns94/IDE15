@@ -9,7 +9,7 @@ Download the repository in the following manner:
 git clone git://github.com/kns94/IDE15.git
 
 #It will give allow files to execute 
-sudo chmod 777 IDE15
+sudo chmod 777 -R IDE15
 
 cd IDE15
 ```
