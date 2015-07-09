@@ -37,6 +37,9 @@ from sys import argv
 
 tweet_file=argv[1]
 
+print("\n\n\tMedian of unique-keywords:")
+print("\n\tInput File: "+tweet_file)
+#print("Extracting Median, please wait!")
 #Dictionary of mean
 mean={}
 
@@ -88,7 +91,10 @@ for line in open(tweet_file):
 #Complete Output File Name
 #output_file_name=path+"/"+output_file_name_raw
 
+
 output_file_name=argv[2]
+print("\tOutput File: "+output_file_name)
+print("\n")
 
 output_file=open(output_file_name,'w')
 

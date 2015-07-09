@@ -38,6 +38,9 @@ import re
 
 tweet_file=argv[1]
 
+print("\n\n\tCount of TweetWords after removing delimeters:")
+print("\n\tInput File: "+tweet_file)
+
 #Dictionary of unique keywords
 words={}
 
@@ -80,6 +83,8 @@ sorted_words=sorted(words.items(),key=operator.itemgetter(0))
 #output_file_name=path+"/"+output_file_name_raw
 
 output_file_name=argv[2]
+
+print("\tOutput File: "+output_file_name+"\n")
 
 output_file=open(output_file_name,'w')
 

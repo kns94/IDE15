@@ -26,6 +26,8 @@ cd IDE15
  
     4. Please run the script `./knowledge_extraction.sh` on the terminal to execute `/src/Knowledge_Extraction.py` It will use Alchemy API to extract entity and entity type from the tweets; Please note that key would be required to run it. I have added a sample key; but it can only process 1000 data inputs a day. Please visit the [website](http://www.alchemyapi.com/api/register.html) to get a free key.
 
+    5. Run the script `./sentiment_analysis.sh` to analyze sentiment of input tweet files. It is a time consuming process; so brace yourselves! I have created a seperate directory which contains files related to sentiment analysis - `./sentiment_analysis`
+
 ###### Introduction
 
 I would like to thank David and the entire team at Insight for giving me this opportunity to show-case my knowledge base. 
@@ -58,6 +60,7 @@ For the second task, I extracted unique keywords for a particular tweet and save
 3. Punctuations will be removed \[Done]
 4. Median will be calculated as tweet arrives \[Done]
 5. Extracting entity and entity type from tweet using Alchemy API \[Done]
+6. Sentiment Analysis of tweets \[Done]
 
 ###### Constraints
 

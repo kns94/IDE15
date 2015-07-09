@@ -37,6 +37,10 @@ from sys import argv
 
 tweet_file=argv[1]
 
+print("\n\n\tCount of TweetWords:")
+print("\n\tInput File: "+tweet_file)
+#print("\n\tCalculating Count!")
+
 #Dictionary of unique keywords
 words={}
 
@@ -74,6 +78,8 @@ sorted_words=sorted(words.items(),key=operator.itemgetter(0))
 #output_file_name=path+"/"+output_file_name_raw
 
 output_file_name=argv[2]
+
+print("\tOutput File: "+output_file_name)
 
 output_file=open(output_file_name,'w')
 

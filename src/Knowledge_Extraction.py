@@ -32,8 +32,10 @@ output_file_name=sys.argv[2]
 
 #print("Output File: "+output_file_name)
 
-print("\n\tExtracting Features!")
-print("\n")
+print("\n\n\tExtracting Features using Alchemy API:")
+print("\n\tInput File: "+input_file_name)
+print("\tOutput File: "+output_file_name+"\n")
+
 
 count=0
 api_name="alchemyapi"+str(count)

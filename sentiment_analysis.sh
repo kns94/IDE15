@@ -10,9 +10,6 @@ cd sentiment_analysis && find . -iname '*~' -delete
 cd ..
 
 # next I'll make sure that all my programs (written in Python in this example) have the proper permissions
-chmod a+x ./src/words_tweeted.py
-chmod a+x ./src/median_unique.py
+chmod a+x ./sentiment_analysis/sentiment_analysis.py
 
-python ./src/words_tweeted.py ./tweet_input/tweets.txt ./tweet_output/ft1.txt
-python ./src/median_unique.py ./tweet_input/tweets.txt ./tweet_output/ft2.txt
-
+python ./sentiment_analysis/sentiment_analysis.py ./sentiment_analysis/trainingData_positive.txt ./sentiment_analysis/trainingData_negative.txt ./sentiment_analysis/stopWords.txt ./tweet_input/tweets.txt ./tweet_output/sentiment.txt

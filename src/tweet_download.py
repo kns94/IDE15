@@ -23,6 +23,8 @@ import json
 from sys import argv
 #import codecs
 import time
+import requests
+import sys
 
 #Variables that contain user credentials to Twitter API
 access_token="Your access token"
@@ -51,6 +53,10 @@ class StdOutListener(StreamListener):
 
     def on_error(self, status):
         print status
+	
+	if(status==401):
+		print("\n\tError in authentication; please enter valid tokens!\n")
+		sys.exit(0)
 	print("\n")
 
 if __name__ == '__main__':
@@ -59,14 +65,25 @@ if __name__ == '__main__':
     output_file_name=argv[1]
     output_file=open(output_file_name,'w')
 
-    print("\n\tPress Ctrl+C to stop tweet extraction!\n\n")
-    time.sleep(3)
- 
-    #This handles Twitter authetification and the connection to Twitter Streaming API
-    l = StdOutListener()
-    auth = OAuthHandler(consumer_key, consumer_secret)
-    auth.set_access_token(access_token, access_token_secret)
-    stream = Stream(auth, l)
+    print("\tDownloading Tweets:")
+    print("\n\tTweet Output File: "+output_file_name+"\n")
 
-    #This line filter Twitter Streams to capture data by the keywords: 'data'
-    stream.filter(track=['data'])
+    print("\n\tPress Ctrl+C to stop tweet extraction!\n\n")
+    time.sleep(3) 
+
+    requests.packages.urllib3.disable_warnings()
+
+    while(True):
+
+        try:
+            #This handles Twitter authetification and the connection to Twitter Streaming API
+            l = StdOutListener()
+            auth = OAuthHandler(consumer_key, consumer_secret)
+            auth.set_access_token(access_token, access_token_secret)
+            stream = Stream(auth, l)
+            
+            #This line filter Twitter Streams to capture data by the keywords: 'data'
+            stream.filter(track=['data'])
+
+        except KeyboardInterrupt:
+            break  

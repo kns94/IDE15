@@ -23,6 +23,9 @@ import json
 from sys import argv
 #import codecs
 import time
+import sys
+import requests
+import re
 
 #Variables that contain user credentials to Twitter API
 access_token="Your access token"
@@ -46,10 +49,10 @@ class StdOutListener(StreamListener):
 	#Extracting just the tweet text
 	tweet=tweet["text"]
 	tweet=tweet.encode("UTF-8")
-
+	
 	#Unicode Encoder
 	print("\n"+str(tweet))
-
+	
 	output_file.write(str(tweet))
 	output_file.write("\n")
 
@@ -63,7 +66,8 @@ class StdOutListener(StreamListener):
 
 	while(i<len(tweetWords)):
 
-		if(tweetWords[i]):
+		if(tweetWords[i] and tweetWords[i]!='\n'):
+
 			#Appending unique keywords in a list
 			if(tweetWords[i] not in unique_list):
 				unique_list.append(tweetWords[i])
@@ -96,6 +100,11 @@ class StdOutListener(StreamListener):
 
     def on_error(self, status):
         print status
+
+	if(status==401):
+		print("\n\tError in authentication; please enter valid tokens!\n")
+		sys.exit(0)
+
 	print("\n")
 
 if __name__ == '__main__':
@@ -108,6 +117,10 @@ if __name__ == '__main__':
     mean_file_name=argv[2]
     mean_file=open(mean_file_name,'w')
 
+    print("\tDownloading Tweets and Calculating Mean:")
+    print("\n\tTweet Output File: "+output_file_name)
+    print("\tMean Output File: "+mean_file_name)
+
     #Dictionary containing median of unique keywords in a tweet
     mean={}
 
@@ -115,12 +128,20 @@ if __name__ == '__main__':
 
     print("\n\tPress Ctrl+C to stop tweet extraction!\n\n")
     time.sleep(3)
- 
-    #This handles Twitter authetification and the connection to Twitter Streaming API
-    l = StdOutListener()
-    auth = OAuthHandler(consumer_key, consumer_secret)
-    auth.set_access_token(access_token, access_token_secret)
-    stream = Stream(auth, l)
 
-    #This line filter Twitter Streams to capture data by the keywords: 'data'
-    stream.filter(track=['data'])
+    requests.packages.urllib3.disable_warnings()
+
+    while(True):
+
+        try:
+            #This handles Twitter authetification and the connection to Twitter Streaming API
+            l = StdOutListener()
+            auth = OAuthHandler(consumer_key, consumer_secret)
+            auth.set_access_token(access_token, access_token_secret)
+            stream = Stream(auth, l)
+            
+            #This line filter Twitter Streams to capture data by the keywords: 'data'
+            stream.filter(track=['data'])
+
+        except KeyboardInterrupt:
+            break  
